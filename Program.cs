@@ -6,8 +6,8 @@ public class Program
     public static void Main(string[] args)
     {
         char[,] engineData = GetMatrix(ReadFile("input.txt"));//Se selecciona el archivo de texto
-        Part1(engineData);
-        Part2(engineData);
+        Part1(engineData);//Se ejecuta la parte 1
+        Part2(engineData);//Se ejecuta la parte 2
     }
 
     public static bool Part1(char[,] data)
