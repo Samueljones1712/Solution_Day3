@@ -334,13 +334,14 @@ public static bool isPiece(char[,] data, int i, int j)
     }
     public static LinkedList<string> ReadFile(string fileName)
     {
-        string file = @"C:\Users\samue\Downloads\Profesion\Advent of Code\Day-3\Solution_Day3\Resources\" + fileName;
-        LinkedList<string> listWords = new LinkedList<string>();
-        Console.WriteLine("Reading File using File.ReadAllText()");
 
-        if (File.Exists(file))
+        string executableDir = AppDomain.CurrentDomain.BaseDirectory;
+        string projectDir = Path.GetFullPath(Path.Combine(executableDir, @"..\..\.."));
+        string relativePath = Path.Combine(projectDir, "Resources", fileName);
+        LinkedList<string> listWords = new LinkedList<string>();
+        if (File.Exists(relativePath))
         {
-            StreamReader Textfile = new StreamReader(file);
+            StreamReader Textfile = new StreamReader(relativePath);
             string line;
 
             while ((line = Textfile.ReadLine()) != null)
